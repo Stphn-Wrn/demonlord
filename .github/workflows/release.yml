@@ -110,9 +110,10 @@ jobs:
 
       - name: Create release
         id: create_version_release
-        uses: ncipollo/release-action@v1
+        uses: ncipollo/release-action@v1.14.0
         with:
           allowUpdates: true
           name: ${{ github.event.release.name }}
+          token: ${{ secrets.PAT_TOKEN }}
           artifacts: './dist/${{ env.package_type }}.json, ./${{ env.package_type }}.zip'
           body: ${{ github.event.release.body }}
